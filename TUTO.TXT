@@ -1,0 +1,19 @@
+Étape 1 : build :
+
+L'image est une version statique de ton environnement. 
+Elle est construite une fois et peut être utilisée plusieurs fois sans avoir besoin de la reconstruire.
+Si tu changes ton Dockerfile ou si tu modifies des fichiers dans ton projet, tu devras reconstruire l'image.
+Étape 2 : run :
+
+Chaque fois que tu veux exécuter ton projet, tu lances un conteneur à partir de l'image.
+Cela tre permet de tester, exécuter et itérer rapidement sans devoir configurer manuellement 
+l'environnement à chaque fois.
+Si tu veux changer ton code ou modifier des fichiers, il te suffit de run un nouveau conteneur 
+(pas besoin de rebuild si les changements ne concernent pas le Dockerfile ou la structure de l'image).
+
+
+
+COMMANDES 
+docker build -t gcc-docker-app .### build pour construire l'image -t pour donner un nom et '.' 
+                                ###pour dire que mon docker file est dans le fichier actuel
+docker run -it --rm -v %cd%:/usr/src/myapp -w /usr/src/myapp gcc:latest bash
